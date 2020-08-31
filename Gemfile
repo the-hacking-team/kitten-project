@@ -57,4 +57,23 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', '>= 1.2016.7'
+
+# Difference between datetimes
+gem 'time_difference'
+# For seeds
+gem 'faker'
+# ENV variables in prod, .env in dev
+gem 'dotenv-rails'
+# User authentification made easy
+gem 'devise'
+# Nice output in rails console
+gem 'table_print'
+# Payment API
+gem 'stripe'
+
+group :development do
+  # Nice for solargraph extension in VS Code (code auto format, auto completion)
+  gem 'solargraph'
+end
