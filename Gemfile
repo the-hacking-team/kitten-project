@@ -77,3 +77,5 @@ group :development do
   # Nice for solargraph extension in VS Code (code auto format, auto completion)
   gem 'solargraph'
 end
+
+gem 'bootstrap', '~> 5.0.0.alpha1'
