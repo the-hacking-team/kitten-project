@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Pour ne pas envoyer des mails lors de la génération de ma DB
+# To avoid sending emails during the seed ???
 ::Rails.application.config.action_mailer.perform_deliveries = false
-config.action_mailer.perform_deliveries = true
-# Version française !
+
+# In French please !
 Faker::Config.locale = 'fr'
 
 Item.destroy_all
@@ -24,12 +24,13 @@ User.destroy_all
   )
 end 
 
-puts "Création des Users :"
-2.times do
+puts "1 user created"
+1.times do
   password = Faker::Internet.password
   first = Faker::Name.first_name
   last  = Faker::Name.last_name
-  email = "#{first}.#{last}@yopmail.com"
-
-  User.create(email: email, password: password, description: Faker::Lorem.sentences(number: 10).join(' '), first_name: first, last_name: last)
+  # email = "#{first}.#{last}@yopmail.com"
+  email = Faker::Internet.username(specifier: "#{first} #{last}", separators: ['.']) + '@yopmail.com'
+  User.create(email: email, password: password)
+  puts email
 end
