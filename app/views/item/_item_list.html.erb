@@ -1,0 +1,13 @@
+<div class="card-deck">
+  <% @items.each do |item| %>
+    <div class="card">
+      <img class="card-img-top" src="<%= item.image_url%>" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= item.title %></h5>
+        <p class="card-text"><%= item.description %></p>
+        <p class="card-text"><small class="text-muted"><%= item.price %> €</small></p>
+        <%= link_to "Plus d'informations", item_path(item.id), class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

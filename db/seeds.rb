@@ -15,7 +15,7 @@ Item.destroy_all
   item = Item.create(
     title: Faker::Creature::Cat.breed,
     description: Faker::Lorem.paragraph(sentence_count: 3),
-    price:rand(5..100),
+    price:rand(5.00..100.00),
     image_url: "http://placekitten.com/#{rand(150..200)}/#{rand(150..200)}",
   )
 end 
