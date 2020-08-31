@@ -1,0 +1,20 @@
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// ========== Navbars ======================================================================
+
+.navbar_firstband,
+.navbar_secondband {
+  @extend .col-md-12;
+}
+
+// ========== Firstband ============
+.navbar_firstband {
+  @extend .bg-dark;
+}
+
+// ========== Secondband ===========
+.navbar_secondband {
+  @extend .bg-light;
+}
