@@ -6,8 +6,24 @@
 
 .navbar_firstband,
 .navbar_secondband {
-  @extend .col-md-12;
 }
+
+.unordered_list {
+  @extend .navbar-nav, .mr-auto;
+}
+
+.collapsable_elements {
+  @extend .collapse, .navbar-collapse;
+}
+
+.nav-item-left_firstband {
+  @extend .nav-item;
+}
+
+.nav-item-left_firstband_link {
+  @extend .nav-link;
+} 
+
 
 // ========== Firstband ============
 .navbar_firstband {
@@ -16,5 +32,10 @@
 
 // ========== Secondband ===========
 .navbar_secondband {
-  @extend .bg-light;
+  @extend .bg-light, .navbar, .navbar-expand-lg, .navbar-light;
+}
+
+// .form-inline ne fonctionne pas
+.search_bar_container {
+  @extend .my-2, .my-lg-0;
 }
