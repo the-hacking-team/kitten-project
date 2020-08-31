@@ -1,0 +1,53 @@
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// ========== Navbars ======================================================================
+
+.navbar_firstband,
+.navbar_secondband {
+}
+
+.unordered_list {
+  @extend .navbar-nav, .mr-auto;
+}
+
+.collapsable_elements {
+  @extend .collapse, .navbar-collapse;
+}
+
+.nav-item-left_firstband {
+  @extend .nav-item;
+}
+
+.nav-item-left_firstband_link {
+  @extend .nav-link;
+} 
+
+
+// ========== Firstband ======================================================================
+.navbar_firstband {
+  @extend .bg-dark, .navbar, .navbar-expand-lg, .navbar-dark;
+}
+
+// ========== Secondband =====================================================================
+.navbar_secondband {
+  @extend .bg-light, .navbar, .navbar-expand-lg, .navbar-light;
+}
+
+.navbar-logotext {
+	height: 40px;
+}
+
+.navbar-logoimage {
+	height: 40px;
+}
+
+
+// ========== Search bar ===========
+
+
+.search_bar_container { 
+  @extend .my-2, .my-lg-0; // .form-inline ne fonctionne pas
+}
+

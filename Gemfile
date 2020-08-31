@@ -85,3 +85,4 @@ group :development do
   # To avoid sending emails in develop environment
   gem 'letter_opener'
 end
+
