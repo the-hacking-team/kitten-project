@@ -80,3 +80,4 @@ group :development do
   # Nice for solargraph extension in VS Code (code auto format, auto completion)
   gem 'solargraph'
 end
+
