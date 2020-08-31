@@ -29,6 +29,8 @@
 
 .item-card-body {
   @extend .card-body;
+  display: flex;
+  flex-direction: column;
 }
 
 .item-title {
@@ -40,7 +42,15 @@
 }
 
 .show-button {
-  @extend .btn, .btn-info;
+  @extend .btn, .btn-info, .mt-auto;
+  margin-bottom: 5px;
+}
+
+.cart-button {
+  @extend .btn;
+  background-color: #b15315;
+  outline: none;
+  color: white;
 }
 
 
@@ -48,11 +58,16 @@
 
 
 .product-container {
+  display: flex;
+  justify-content: center;
   text-align: center;
   padding: 5%;
 }
 
-
+.product {
+  @extend .card;
+  width: 502px;
+}
 
 
 .product-img {
@@ -64,4 +79,24 @@
 .product-title {
   font-size: 2.5rem;
   margin-bottom: 30px;
+}
+
+// Test autre option
+
+.element {
+  text-align: center;
+  padding: 8%;
+}
+
+.element_picture {
+  float: left;
+  width: 400px;
+  height: 300px;
+  clear: left;
+  margin-right: 50px;
+}
+
+.element_text {
+  padding-top: 7%;
+  margin-left: 50px;
 }

@@ -11,7 +11,7 @@
         <p class="item-text"><small class="text-muted"><%= item.price %> €</small></p>
         <%= link_to "Plus d'informations", item_path(item.id), class: "show-button" %>
         <% if user_signed_in? %>
-          <%= link_to "Ajouter au panier", item_path(item.id), class: "show-button" %>
+          <%= link_to "Ajouter au panier", root_path, class: "cart-button" %>
         <% end %>
       </div>
     </div>
