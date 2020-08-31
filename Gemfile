@@ -62,8 +62,6 @@ gem 'tzinfo-data', '>= 1.2016.7'
 
 # Difference between datetimes
 gem 'time_difference'
-# Tokens
-gem 'bcrypt'
 # For seeds
 gem 'faker'
 # ENV variables in prod, .env in dev
