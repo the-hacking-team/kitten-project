@@ -25,17 +25,29 @@
 } 
 
 
-// ========== Firstband ============
+// ========== Firstband ======================================================================
 .navbar_firstband {
   @extend .bg-dark, .navbar, .navbar-expand-lg, .navbar-dark;
 }
 
-// ========== Secondband ===========
+// ========== Secondband =====================================================================
 .navbar_secondband {
   @extend .bg-light, .navbar, .navbar-expand-lg, .navbar-light;
 }
 
-// .form-inline ne fonctionne pas
-.search_bar_container {
-  @extend .my-2, .my-lg-0;
+.navbar-logotext {
+	height: 40px;
 }
+
+.navbar-logoimage {
+	height: 40px;
+}
+
+
+// ========== Search bar ===========
+
+
+.search_bar_container { 
+  @extend .my-2, .my-lg-0; // .form-inline ne fonctionne pas
+}
+
