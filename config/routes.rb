@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-
-  root 'item#index'
+  devise_for :users
+  root 'items#index'
+  
+  resources :items, only: [ :index, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  resources :item, only: [ :index, :show]
 end
