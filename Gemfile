@@ -64,8 +64,6 @@ gem 'tzinfo-data', '>= 1.2016.7'
 gem 'time_difference'
 # For seeds
 gem 'faker'
-# ENV variables in prod, .env in dev
-gem 'dotenv-rails'
 # User authentification made easy
 gem 'devise'
 # Nice output in rails console
@@ -76,7 +74,14 @@ gem 'stripe'
 gem 'bootstrap', '~> 5.0.0.alpha1'
 gem 'font-awesome-sass', '~> 5.13.0'
 
+group :development, :test do
+  # ENV variables in prod, .env in dev
+  gem 'dotenv-rails'
+end
+
 group :development do
   # Nice for solargraph extension in VS Code (code auto format, auto completion)
   gem 'solargraph'
+  # To avoid sending emails in develop environment
+  gem 'letter_opener'
 end
