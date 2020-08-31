@@ -1,0 +1,20 @@
+
+<div class="item-deck">
+  <% @items.each do |item| %>
+    <div class="col-md-4 mb-3 mt-2">
+
+    <div class="item-card">
+      <img class="item-img" src="<%= item.image_url%>" alt="Card image cap">
+      <div class="item-card-body">
+        <h5 class="item-title"><%= item.title %></h5>
+        <p class="item-text"><%= item.description %></p>
+        <p class="item-text"><small class="text-muted"><%= item.price %> €</small></p>
+        <%= link_to "Plus d'informations", item_path(item.id), class: "show-button" %>
+        <% if user_signed_in? %>
+          <%= link_to "Ajouter au panier", root_path, class: "cart-button" %>
+        <% end %>
+      </div>
+    </div>
+    </div>
+  <% end %>
+</div>

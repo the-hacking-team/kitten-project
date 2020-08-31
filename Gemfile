@@ -73,7 +73,11 @@ gem 'table_print'
 # Payment API
 gem 'stripe'
 
+gem 'bootstrap', '~> 5.0.0.alpha1'
+gem 'font-awesome-sass', '~> 5.13.0'
+
 group :development do
   # Nice for solargraph extension in VS Code (code auto format, auto completion)
   gem 'solargraph'
 end
+

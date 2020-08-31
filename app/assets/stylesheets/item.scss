@@ -1,0 +1,102 @@
+// Place all the styles related to the item controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+
+
+// Item list 
+
+.item-deck {
+  @extend .card-deck !optional;
+  @extend .row;
+  margin: 60px;
+ }
+
+
+.item-card {
+  @extend .card;
+  margin: 15px;
+  width: 16rem;
+  height: 500px;
+}
+
+.item-img {
+  @extend .card-img-top;
+  width: 15.9rem;
+  height: 15rem;
+}
+
+.item-card-body {
+  @extend .card-body;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-title {
+  @extend .card-title;
+}
+
+.item-text {
+  @extend .card-text;
+}
+
+.show-button {
+  @extend .btn, .btn-info, .mt-auto;
+  margin-bottom: 5px;
+}
+
+.cart-button {
+  @extend .btn;
+  background-color: #b15315;
+  outline: none;
+  color: white;
+}
+
+
+// Item (show)
+
+
+.product-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 5%;
+}
+
+.product {
+  @extend .card;
+  width: 502px;
+}
+
+
+.product-img {
+  width: 500px;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.product-title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+// Test autre option
+
+.element {
+  text-align: center;
+  padding: 8%;
+}
+
+.element_picture {
+  float: left;
+  width: 400px;
+  height: 300px;
+  clear: left;
+  margin-right: 50px;
+}
+
+.element_text {
+  padding-top: 7%;
+  margin-left: 50px;
+}

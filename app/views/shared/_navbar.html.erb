@@ -1,0 +1,89 @@
+<!-- Firstband
+      ================================================== -->
+<div class="bs-component">
+    <nav class="navbar_firstband">
+        <div class="collapsable_elements" id="navbarColor02">
+            <ul class="unordered_list">
+                <li class="nav-item-left_firstband">
+                    <a class="nav-item-left_firstband_link" href="../help/">Categories</a>
+                </li>
+                <li class="nav-item-left_firstband">
+                    <a class="nav-link" href="../help/">Images</a>
+                </li>
+                <li class="nav-item-left_firstband">
+                    <a class="nav-link" href="../help/">Vectors</a>
+                </li>
+            </ul>
+            <div>
+                <ul class="unordered_list">
+                    <li class="nav-item dropdown nav-item-right_firstband">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">Language<span class="caret"></span></a>
+                        <div class="dropdown-menu" aria-labelledby="download">
+                            <a class="dropdown-item" target="_blank" href="https://jsfiddle.net/bootswatch/3he50zsf/">English</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="../4/simplex/bootstrap.min.css" download>French</a>
+                        </div>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../help/">Prices</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../help/">Login</a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../help/">Signup</a>
+                    </li>
+
+
+                    <% if user_signed_in? %>
+                    <li class="nav-item active">
+                        
+                            <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>"
+                    </li>
+                    <li class="nav-item active">
+                        Voici ton email :
+                        
+                            <%= current_user.email %>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link">
+                            <%= link_to "Edit email / password", edit_user_registration_path %></a>
+                    </li>
+                    <% else %>
+                    <li class="nav-item active">
+                        <a class="nav-link">
+                            <%= link_to "Login", new_user_session_path %></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link">
+                            <%= link_to "Sign up", new_user_registration_path %></a>
+                    </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Secondband
+      ================================================== -->
+<div class="bs-component">
+    <nav class="navbar_secondband">
+        <%= link_to root_path do %>
+        <%= image_tag "hello-kitten.png", class:"navbar-logotext" %>
+        <% end %>
+        <%= link_to root_path do %>
+        <%= image_tag "catlogo.png", class:"navbar-logoimage" %>
+        <% end %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor03">
+            <form class="search_bar_container form-inline">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+        <i class="fas fa-shopping-cart"></i>
+    </nav>
+</div>
