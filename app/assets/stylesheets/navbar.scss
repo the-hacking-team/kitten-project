@@ -11,7 +11,7 @@
 
 // ========== Firstband ============
 .navbar_firstband {
-  @extend .bg-dark;
+  @extend .bg-dark, .navbar, .navbar-expand-lg, .navbar-dark;
 }
 
 // ========== Secondband ===========
