@@ -24,40 +24,22 @@
                             <a class="dropdown-item" href="../4/simplex/bootstrap.min.css" download>French</a>
                         </div>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../help/">Prices</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../help/">Login</a>
-                    </li>
-
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../help/">Signup</a>
-                    </li>
-
-
                     <% if user_signed_in? %>
                     <li class="nav-item active">
-                        
-                            <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>"
+                            <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"nav-link" %>"
                     </li>
                     <li class="nav-item active">
-                        Voici ton email :
-                        
                             <%= current_user.email %>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link">
-                            <%= link_to "Edit email / password", edit_user_registration_path %></a>
+                            <%= link_to "Edit email / password", edit_user_registration_path, class:"nav-link" %>
                     </li>
                     <% else %>
                     <li class="nav-item active">
-                        <a class="nav-link">
-                            <%= link_to "Login", new_user_session_path %></a>
+                            <%= link_to "Login", new_user_session_path, class:"nav-link"  %>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link">
-                            <%= link_to "Sign up", new_user_registration_path %></a>
+                            <%= link_to "Sign up", new_user_registration_path, class:"nav-link"  %>
                     </li>
                     <% end %>
                 </ul>
@@ -84,6 +66,8 @@
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
-        <i class="fas fa-shopping-cart"></i>
+
+        <%= button_tag root_path, class: "cart_button" %>
+
     </nav>
 </div>
