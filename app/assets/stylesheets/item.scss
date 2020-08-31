@@ -4,8 +4,13 @@
 
 @import "bootstrap";
 
+
+// Item list 
+
 .item-deck {
   @extend .card-deck !optional;
+  @extend .row;
+  margin: 60px;
  }
 
 
@@ -13,11 +18,13 @@
   @extend .card;
   margin: 15px;
   width: 16rem;
+  height: 500px;
 }
 
 .item-img {
   @extend .card-img-top;
   width: 15.9rem;
+  height: 15rem;
 }
 
 .item-card-body {
@@ -33,6 +40,28 @@
 }
 
 .show-button {
-  @extend .btn;
-  @extend .btn-primary;
+  @extend .btn, .btn-info;
+}
+
+
+// Item (show)
+
+
+.product-container {
+  text-align: center;
+  padding: 5%;
+}
+
+
+
+
+.product-img {
+  width: 500px;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.product-title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
 }

@@ -1,8 +1,14 @@
-<div class="card">
-<img class="card-img-top" src="<%= @item.image_url%>" alt="Card image cap">
-<div class="card-body">
-  <h5 class="card-title"><%= @item.title %></h5>
-  <p class="card-text"><%= @item.description %></p>
-  <p class="card-text"><small class="text-muted"><%= @item.price %> €</small></p>
-</div>
+
+<div class="product-container">
+  <div class="product">
+    <img class="product-img" src="<%= @item.image_url%>" alt="Card image cap">
+    <div class="product-body">
+        <h5 class="product-title"><%= @item.title %></h5>
+        <p class="product-text"><%= @item.description %></p>
+        <p class="product-price"><small class="text-muted"><%= @item.price %> €</small></p>
+      <% if user_signed_in? %>
+          <%= link_to "Ajouter au panier", item_path(item.id), class: "show-button" %>
+      <% end %>
+    </div>
+  </div>
 </div>
