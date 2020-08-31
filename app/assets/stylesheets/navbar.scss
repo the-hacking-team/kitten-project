@@ -48,6 +48,13 @@
 
 
 .search_bar_container { 
-  @extend .my-2, .my-lg-0; // .form-inline ne fonctionne pas
+  @extend .col-md-6, .d-flex, .flex-row, .my-2, .my-lg-0;
 }
+
+// ========== Cart button ===========
+.cart_button {
+  @extend .btn, .btn-lg, .fas, .fa-shopping-cart;
+}
+
+
 
