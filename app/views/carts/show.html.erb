@@ -4,7 +4,11 @@
 
 <ul>
   <% for item in @items %>
-    <li> <%= item.title %> coût : <%= item.price %> €
-     </li>
+    <li> <%= item.title %> coût : <%= item.price %> €</li>
+    <li><%= link_to "Remove from cart", cart_path(:item_id => item.id), class:"btn btn-outline-primary", method: "delete" %></li> 
   <% end %>
+  <li>Total price : <%= @total %> €</li>
 </ul>
+
+
+<%= link_to "Order", root_path, class:"btn btn-warning"%>
