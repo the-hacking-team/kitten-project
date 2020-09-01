@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <div id="navbar"> <%= render partial: "shared/navbar" %> </div>
+    <div class= "navbar_maincontainer" id="navbar"> <%= render partial: "shared/navbar" %> </div>
     <div id="jumbotron"> <%= render partial: "shared/jumbotron" %> </div>
     <div id="alerts"> <%= render partial: "shared/alerts" %> </div>
     <div id="main"> <%= content_for?(:main) ? yield(:main) : yield %> </div>

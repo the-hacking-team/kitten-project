@@ -3,43 +3,31 @@
 <div class="bs-component">
     <nav class="navbar_firstband">
         <div class="collapsable_elements" id="navbarColor02">
-            <ul class="unordered_list">
-                <li class="nav-item-left_firstband">
-                    <a class="nav-item-left_firstband_link" href="../help/">Categories</a>
-                </li>
-                <li class="nav-item-left_firstband">
-                    <a class="nav-link" href="../help/">Images</a>
-                </li>
-                <li class="nav-item-left_firstband">
-                    <a class="nav-link" href="../help/">Vectors</a>
-                </li>
+            <ul class="unordered_list_left">
             </ul>
             <div>
-                <ul class="unordered_list">
+                <ul class="unordered_list_right">
                     <li class="navbar-item-right_firstband">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">Language<span class="caret"></span></a>
                         <div class="dropdown-menu" aria-labelledby="download">
                             <a class="dropdown-item" target="_blank" href="">English</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="" >French</a>
+                            <a class="dropdown-item" href="">French</a>
                         </div>
                     </li>
                     <% if user_signed_in? %>
                     <li class="nav-item active">
-                            <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"nav-link" %>"
+                        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"nav-link" %>
                     </li>
                     <li class="nav-item active">
-                            <%= current_user.email %>
-                    </li>
-                    <li class="nav-item active">
-                            <%= link_to "Edit email / password", edit_user_registration_path, class:"nav-link" %>
+                        <%= link_to current_user.email, edit_user_registration_path, class:"nav-link" %>
                     </li>
                     <% else %>
                     <li class="nav-item active">
-                            <%= link_to "Login", new_user_session_path, class:"nav-link"  %>
+                        <%= link_to "Login", new_user_session_path, class:"nav-link"  %>
                     </li>
                     <li class="nav-item active">
-                            <%= link_to "Sign up", new_user_registration_path, class:"nav-link"  %>
+                        <%= link_to "Sign up", new_user_registration_path, class:"nav-link"  %>
                     </li>
                     <% end %>
                 </ul>
@@ -66,8 +54,10 @@
                 <button class="search_bar_button" type="submit">Search</button>
             </form>
         </div>
-
-        <%= button_tag root_path, class: "cart_button" %>
-
+        <ul class="cart_container">
+            <li>
+                <%= link_to "Cart", root_path, class:"cart_button" %>
+            </li>
+        </ul>
     </nav>
 </div>
