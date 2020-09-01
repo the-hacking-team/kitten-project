@@ -6,26 +6,17 @@
         <h5 class="product-title"><%= @item.title %></h5>
         <p class="product-text"><%= @item.description %></p>
         <p class="product-price"><small class="text-muted"><%= @item.price %> €</small></p>
+
       <% if user_signed_in? %>
-          <%= link_to "Ajouter au panier", root_path, class: "show-button" %>
-      <% end %>
+        
+      <%= form_tag( { :controller => :carts, :action => :update, :item_id => @item.id }, { :method => :put } ) do %>
+        <div><%= submit_tag 'Add' %></div>
+      <%end%>
+
+      <% end %>    
+
+
     </div>
   </div>
 </div>
 
-
-
-
-<div class="element">
-    <div>
-      <img src="<%= @item.image_url%>"  class="element_picture" alt="">
-    </div>
-    <div class="element_text">
-      <h5 class="product-title"><%= @item.title %></h5>
-      <p><%= @item.description %></p>
-    </div>
-    <p class="product-price"><small class="text-muted"><%= @item.price %> €</small></p>
-    <% if user_signed_in? %>
-      <%= link_to "Ajouter au panier", root_path, class: "cart-button" %>
-    <% end %>
-</div>
