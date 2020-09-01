@@ -6,11 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# To avoid sending emails during the seed ???
+# To avoid sending emails during the seed ?
+# FIXME: does not seem to work?
 ::Rails.application.config.action_mailer.perform_deliveries = false
-
-# In French please !
-Faker::Config.locale = 'fr'
 
 Item.destroy_all
 User.destroy_all
