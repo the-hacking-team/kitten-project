@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # To avoid sending emails during the seed ?
+# FIXME: does not seem to work?
 ::Rails.application.config.action_mailer.perform_deliveries = false
 
 Item.destroy_all
