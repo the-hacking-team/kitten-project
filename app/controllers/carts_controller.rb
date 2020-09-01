@@ -11,6 +11,13 @@ before_action :authenticate_user!
     end
     @items = @cart.items
     @user = current_user
+
+    @cart_items = CartItem.where(cart_id: @cart.id)
+    
+    @total = 0
+    @cart_items.each do |cart_item|
+      @total += cart_item.item.price
+    end
   end
 
   def update
@@ -26,5 +33,16 @@ before_action :authenticate_user!
   end
 
   def destroy
+    @cart = Cart.where(user_id: current_user.id).last
+    @cart_item2 = CartItem.find_by(cart_id: @cart.id, item_id: params[:item_id])
+    @cart_item2.destroy
+
+    puts params[:item_id]
+    redirect_to cart_path(params[:id])
   end
+
+
+  private 
+
+
 end
