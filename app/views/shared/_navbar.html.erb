@@ -1,65 +1,65 @@
 <!-- Firstband
       ================================================== -->
 <div class="bs-component">
-    <nav class="navbar_firstband">
-        <div class="collapsable_elements" id="navbarColor02">
-            <ul class="unordered_list_left">
-            </ul>
-            <div>
-                <ul class="unordered_list_right">
-                    <li class="navbar-item-right_firstband">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">Language<span class="caret"></span></a>
-                        <div class="dropdown-menu" aria-labelledby="download">
-                            <a class="dropdown-item" target="_blank" href="">English</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="">French</a>
-                        </div>
-                    </li>
-                    <% if user_signed_in? %>
-                    <li class="nav-item active">
-                        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"nav-link" %>
-                    </li>
-                    <li class="nav-item active">
-                        <%= link_to current_user.email, edit_user_registration_path, class:"nav-link" %>
-                    </li>
-                    <% else %>
-                    <li class="nav-item active">
-                        <%= link_to "Login", new_user_session_path, class:"nav-link"  %>
-                    </li>
-                    <li class="nav-item active">
-                        <%= link_to "Sign up", new_user_registration_path, class:"nav-link"  %>
-                    </li>
-                    <% end %>
-                </ul>
+  <nav class="navbar_firstband">
+    <div class="collapsable_elements" id="navbarColor02">
+      <ul class="unordered_list_left">
+      </ul>
+      <div>
+        <ul class="unordered_list_right">
+          <li class="navbar-item-right_firstband">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">Language<span class="caret"></span></a>
+            <div class="dropdown-menu" aria-labelledby="download">
+              <a class="dropdown-item" target="_blank" href="">English</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="">French</a>
             </div>
-        </div>
-    </nav>
+          </li>
+          <% if user_signed_in? %>
+            <li class="nav-item active">
+              <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"nav-link" %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to current_user.email, edit_user_registration_path, class:"nav-link" %>
+            </li>
+          <% else %>
+            <li class="nav-item active">
+              <%= link_to "Login", new_user_session_path, class:"nav-link"  %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "Sign up", new_user_registration_path, class:"nav-link"  %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </div>
 <!-- Secondband
       ================================================== -->
 <div class="bs-component">
-    <nav class="navbar_secondband">
-        <%= link_to root_path do %>
-        <%= image_tag "hello-kitten.png", class:"navbar-logotext" %>
-        <% end %>
-        <%= link_to root_path do %>
-        <%= image_tag "catlogo.png", class:"navbar-logoimage" %>
-        <% end %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbarColor03" id="navbarColor03">
-            <form class="search_bar_container">
-                <input class="search_bar_form" type="text" placeholder="Search">
-                <button class="search_bar_button" type="submit">Search</button>
-            </form>
-        </div>
-        <% if user_signed_in? %>
-        <ul class="cart_container">
-			<li>             
-				<%= link_to "Cart", cart_path(current_user.cart), class:"cart_button" %>
-			</li>
-		</ul>
-		<%end%>
-    </nav>
+  <nav class="navbar_secondband">
+    <%= link_to root_path do %>
+      <%= image_tag "hello-kitten.png", class:"navbar-logotext" %>
+    <% end %>
+    <%= link_to root_path do %>
+      <%= image_tag "catlogo.png", class:"navbar-logoimage" %>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbarColor03" id="navbarColor03">
+      <form class="search_bar_container">
+        <input class="search_bar_form" type="text" placeholder="Search">
+        <button class="search_bar_button" type="submit">Search</button>
+      </form>
+    </div>
+    <% if user_signed_in? %>
+      <ul class="cart_container">
+        <li>
+          <%= link_to "Panier (#{current_user.cart.total_price} €)", cart_path(current_user.cart), class:"cart_button" %>
+        </li>
+      </ul>
+    <%end%>
+  </nav>
 </div>
