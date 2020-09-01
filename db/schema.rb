@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 2020_09_01_075439) do
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.bigint "oder_id"
+    t.bigint "order_id"
     t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_order_items_on_item_id"
-    t.index ["oder_id"], name: "index_order_items_on_oder_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
