@@ -1,22 +1,13 @@
-
 <div class="product-container">
   <div class="product">
-    <img class="product-img" src="<%= @item.image_url%>" alt="Card image cap">
+    <img class="product-img" src="<%= item.image_url%>" alt="Card image cap">
     <div class="product-body">
-        <h5 class="product-title"><%= @item.title %></h5>
-        <p class="product-text"><%= @item.description %></p>
-        <p class="product-price"><small class="text-muted"><%= @item.price %> €</small></p>
+      <h5 class="product-title"><%= item.title %></h5>
+      <p class="product-text"><%= item.description %></p>
+      <p class="product-price"><small class="text-muted"><%= item.price %> €</small></p>
 
-      <% if user_signed_in? %>
-        
-      <%= form_tag( { :controller => :carts, :action => :update, :item_id => @item.id }, { :method => :put } ) do %>
-        <div><%= submit_tag 'Add' %></div>
-      <%end%>
-
-      <% end %>    
-
+      <%= render partial: 'add_to_cart', locals: {item: item} %>
 
     </div>
   </div>
 </div>
-
