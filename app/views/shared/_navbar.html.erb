@@ -57,10 +57,10 @@
     <% if user_signed_in? %>
       <ul class="cart_container">
         <li>
-          <%= link_to "Cart", cart_path(current_user.cart), class:"cart_button" %>
+          <%= link_to "Panier (#{current_user.cart.total_price} €)", cart_path(current_user.cart), class:"cart_button" %>
         </li>
       </ul>
     <%end%>
   </nav>
 </div>
- 
+

@@ -1,14 +1,22 @@
-<h1>Carts#show</h1>
-<p> Panier de <%= @user.email %></p>
+<h1> Panier de <%= current_user.email %></h1>
 
-
-<ul>
-  <% for item in @items %>
-    <li> <%= item.title %> coût : <%= item.price %> €</li>
-    <li><%= link_to "Remove from cart", cart_path(:item_id => item.id), class:"btn btn-outline-primary", method: "delete" %></li> 
+<table class="cart">
+  <tr>
+    <th> Produit </th>
+    <th> Prix </th>
+  </tr>
+  <% for item in @cart.items %>
+    <tr>
+      <td><%= link_to "#{item.title}", item_path(item), class:"btn btn-block btn-outline-primary" %></td>
+      <td><%= item.price %> € </td>
+      <td><%= link_to "Supprimer", cart_path(:item_id => item.id), class:"btn btn-outline-secondary", method: "delete" %></td>
+    </tr>
   <% end %>
-  <li>Total price : <%= @total %> €</li>
-</ul>
+  <tr>
+    <th> TOTAL </th>
+    <th> <%= @cart.total_price %> € </th>
+  </tr>
 
+</table>
 
-<%= link_to "Order", new_charge_path, class:"btn btn-warning"%>
+<%= link_to "Passer Commande", new_charge_path, class:"btn btn-warning"%>
