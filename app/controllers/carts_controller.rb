@@ -14,14 +14,14 @@ before_action :authenticate_user!
   end
 
   def update
-    puts params
-    @cart = Cart.find(params[:id])
+    @cart = Cart.where(user_id: current_user.id).last
     if @cart.user != current_user
       flash[:notice] = "Panier d'un autre utilisateur"
       redirect_to root_path
     end
-    @items = Item.find(params[:item_id])
-
+    @item = Item.find(params[:item_id])      
+    @my_cart_item = CartItem.create(cart_id: current_user.cart.id, item_id: @item.id)
+    redirect_to root_path
     # road to the link to the button "add to cart" : cart_path(current_user.cart) method: put 
   end
 

@@ -10,9 +10,12 @@
         <p class="item-text"><%= item.description %></p>
         <p class="item-text"><small class="text-muted"><%= item.price %> €</small></p>
         <%= link_to "Plus d'informations", item_path(item.id), class: "show-button" %>
-        <% if user_signed_in? %>
-          <%= link_to "Ajouter au panier", root_path, class: "cart-button" %>
-        <% end %>
+     
+        <% if user_signed_in? %>        
+        <%= link_to "Add to Cart",
+        cart_path(id: Cart.where(user_id: current_user.id).last.id, item_id: item.id), class:"btn btn-outline-primary w-100", method: "put" %>         
+        <% end %>    
+      
       </div>
     </div>
     </div>
