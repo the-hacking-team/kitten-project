@@ -1,19 +1,16 @@
 class CartsController < ApplicationController
-before_action :authenticate_user!
+  before_action :authenticate_user!
 
-  #Find the Cart whose User ID is current_user.id
-  #Get Cart Params Id
+  # Find the Cart whose User ID is current_user.id
+  # Get Cart Params Id
   def show
     @cart = Cart.find(params[:id])
-    if @cart.user != current_user
-      flash[:notice] = "Panier d'un autre utilisateur"
-      redirect_to root_path
-    end
+    check_cart_belongs_to_current_user
     @items = @cart.items
     @user = current_user
 
     @cart_items = CartItem.where(cart_id: @cart.id)
-    
+
     @total = 0
     @cart_items.each do |cart_item|
       @total += cart_item.item.price
@@ -21,15 +18,16 @@ before_action :authenticate_user!
   end
 
   def update
-    @cart = Cart.where(user_id: current_user.id).last
-    if @cart.user != current_user
-      flash[:notice] = "Panier d'un autre utilisateur"
-      redirect_to root_path
+    @cart = Cart.find(params[:id])
+    check_cart_belongs_to_current_user
+    @item = Item.find(params[:cart][:item_id])
+    if @cart.items.include?(@item)
+      flash[:notice] = 'Déjà dans le panier'
+    else
+      flash[:notice] = 'Bien ajouté au panier'
+      CartItem.create(cart_id: @cart.id, item_id: @item.id)
     end
-    @item = Item.find(params[:item_id])      
-    @my_cart_item = CartItem.create(cart_id: current_user.cart.id, item_id: @item.id)
-    redirect_to root_path
-    # road to the link to the button "add to cart" : cart_path(current_user.cart) method: put 
+    redirect_to request.referrer
   end
 
   def destroy
@@ -41,8 +39,12 @@ before_action :authenticate_user!
     redirect_to cart_path(params[:id])
   end
 
+  private
 
-  private 
-
-
+  def check_cart_belongs_to_current_user
+    if @cart.user != current_user
+      flash[:alert] = "Panier d'un autre utilisateur"
+      redirect_to root_path
+    end
+  end
 end
