@@ -12,6 +12,10 @@
   @extend .navbar-nav, .mr-auto;
 }
 
+.navbar-item-right_firstband {
+  @extend .nav-item, .dropdown;
+}
+
 .collapsable_elements {
   @extend .collapse, .navbar-collapse;
 }
@@ -23,12 +27,15 @@
 .nav-item-left_firstband_link {
   @extend .nav-link;
 } 
-
-
+ 
 // ========== Firstband ======================================================================
+
+// ========== Left elements ===========
 .navbar_firstband {
   @extend .bg-dark, .navbar, .navbar-expand-lg, .navbar-dark;
 }
+
+// ========== Right elements ===========
 
 // ========== Secondband =====================================================================
 .navbar_secondband {
@@ -47,14 +54,28 @@
 // ========== Search bar ===========
 
 
+.navbarColor03 {
+  @extend .collapse, .navbar-collapse;
+}
+
 .search_bar_container { 
   @extend .col-md-6, .d-flex, .flex-row, .my-2, .my-lg-0;
 }
+
+.search_bar_form { 
+  @extend .form-control, .mr-sm-2;
+}
+
+.search_bar_button { 
+  @extend .btn, .btn-secondary, .my-2, .my-sm-0;
+}
+
 
 // ========== Cart button ===========
 .cart_button {
   @extend .btn, .btn-lg, .fas, .fa-shopping-cart;
 }
+
 
 
 
