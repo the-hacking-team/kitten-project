@@ -71,7 +71,7 @@ gem 'table_print'
 # Payment API
 gem 'stripe'
 
-gem 'bootstrap', '~> 5.0.0.alpha1'
+#Adding a library for Icons
 gem 'font-awesome-sass', '~> 5.13.0'
 
 group :development, :test do
