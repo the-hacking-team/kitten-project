@@ -7,11 +7,40 @@
         <p class="product-text"><%= @item.description %></p>
         <p class="product-price"><small class="text-muted"><%= @item.price %> €</small></p>
       <% if user_signed_in? %>
-          <%= link_to "Ajouter au panier", root_path, class: "show-button" %>
+          <%= link_to "Ajouter au panier 2", cart_path(current_user.cart), method: :put, :class => 'show-button' %>
+
+          <%= link_to cart_path(current_user.cart), {method: :put} do %>
+            <button class="show-button"> Ajouter au panier </button>
+          <% end %>
+          
       <% end %>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
