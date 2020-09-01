@@ -54,10 +54,12 @@
                 <button class="search_bar_button" type="submit">Search</button>
             </form>
         </div>
+        <% if user_signed_in? %>
         <ul class="cart_container">
-            <li>
-                <%= link_to "Cart", root_path, class:"cart_button" %>
-            </li>
-        </ul>
+			<li>             
+				<%= link_to "Cart", cart_path(current_user.cart), class:"cart_button" %>
+			</li>
+		</ul>
+		<%end%>
     </nav>
 </div>

@@ -1,0 +1,10 @@
+<h1>Carts#show</h1>
+<p> Panier de <%= @user.email %></p>
+
+
+<ul>
+  <% for item in @items %>
+    <li> <%= item.title %> coût : <%= item.price %> €
+     </li>
+  <% end %>
+</ul>
