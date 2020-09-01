@@ -6,14 +6,22 @@
 
 .navbar_firstband,
 .navbar_secondband {
-}
-
-.unordered_list {
-  @extend .navbar-nav, .mr-auto;
+  @extend .navbar, .navbar-expand-lg;
 }
 
 .collapsable_elements {
   @extend .collapse, .navbar-collapse;
+}
+ 
+// ========== Firstband ======================================================================
+
+// ========== Left elements ===========
+.navbar_firstband {
+  @extend .bg-dark, .navbar-dark;
+}
+
+.unordered_list_left {
+  @extend .navbar-nav, .mr-auto;
 }
 
 .nav-item-left_firstband {
@@ -22,15 +30,19 @@
 
 .nav-item-left_firstband_link {
   @extend .nav-link;
-} 
+}
 
+// ========== Right elements ===========
+.navbar-item-right_firstband {
+  @extend .nav-item, .dropdown;
+}
 
-// ========== Firstband ======================================================================
-.navbar_firstband {
-  @extend .bg-dark, .navbar, .navbar-expand-lg, .navbar-dark;
+.unordered_list_right {
+  @extend .navbar-nav, .ml-auto;
 }
 
 // ========== Secondband =====================================================================
+
 .navbar_secondband {
   @extend .bg-light, .navbar, .navbar-expand-lg, .navbar-light;
 }
@@ -43,11 +55,33 @@
 	height: 40px;
 }
 
-
 // ========== Search bar ===========
-
+.navbarColor03 {
+  @extend .collapse, .navbar-collapse;
+}
 
 .search_bar_container { 
-  @extend .my-2, .my-lg-0; // .form-inline ne fonctionne pas
+  @extend .col-md-6, .d-flex, .flex-row, .my-2, .my-lg-0;
 }
+
+.search_bar_form { 
+  @extend .form-control, .mr-sm-2;
+}
+
+.search_bar_button { 
+  @extend .btn, .btn-secondary, .my-2, .my-sm-0;
+}
+
+
+// ========== Cart button ===========
+.cart_container {
+  @extend .ml-auto, .mr-3, .pr-3;
+}
+
+.cart_button {
+  @extend .btn, .btn-lg, .mr-3;
+}
+
+
+
 
