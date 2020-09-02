@@ -3,3 +3,27 @@
 .devise {
   @extend .container;
 } 
+
+.mailercontainer {
+  @extend  .col-md-6, .offset-md-3;
+}
+
+.formforressource {
+  @extend .mt-3;
+}
+
+.deviseh1title {
+@extend .h3, .mb-3, .font-weight-normal, .text-center;
+}
+
+.submitaction {
+@extend .mt-5;
+}
+
+.submitactionbutton {
+@extend .btn, .btn-lg, .btn-primary, .btn-block;
+}
+
+.deleteactionbutton {
+@extend .btn, .btn-lg, .btn-warning, .btn-block;
+}
