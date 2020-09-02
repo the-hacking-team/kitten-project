@@ -1,6 +1,6 @@
 class ChargesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-
+  
   def index
     # Warning : add this in the routes file if you want to use it
   end
