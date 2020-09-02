@@ -3,6 +3,7 @@ class CartsController < ApplicationController
 
   def show
     @cart = Cart.find(params[:id])
+    @amount_stripe = (@cart.total_price*100).to_i
     check_cart_belongs_to_current_user
   end
 

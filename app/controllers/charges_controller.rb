@@ -1,27 +1,23 @@
 class ChargesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
+  def index
+    # Warning : add this in the routes file if you want to use it
+  end
+
+
   def new
-    ### @order = Order.find(params[:order_id])
-
-    # If something is creater we can add : @something = Something.new
-
-    # Amount in cents
-    ### @amount = @order.price*100  # if order.price is not in cents
-    @order_amount = 5 
-    @amount = @order_amount * 100
-    # We go now in the new.html.erb form : to pay the amount !
+    # Warning : add this in the routes file if you want to use it
   end
   
+
   def create
-    ### @order = Order.find(params[:order_id])
-    ### @amount = @order.price*100  # in cents 
 
     @user = current_user
-    ### puts "#{@user.email} vous cherchez à payer votre commande #{@order.id} qui coute #{@order.price}"
+    @cart = @user.cart
+    @order_amount = @user.cart.total_price
     # Amount in cents
-    @order_amount = 5 
-    @amount = @order_amount * 100
+    @amount_stripe = (@order_amount*100).to_i
     puts "#{@user.email} vous cherchez à payer votre commande qui coute #{@order_amount} €"
 
     # A Stripe object Customer is created : custumer.id is generated and can be re-used for the same customer
@@ -32,13 +28,31 @@ class ChargesController < ApplicationController
 
     charge = Stripe::Charge.create({
       customer: customer.id,
-      amount: @amount,
+      amount: @amount_stripe,
       description: "Paiement de #{@user.email}",
       currency: 'eur',
     })
   
+
+  # Order creation
+  @order = Order.create(user_id: @user.id)
+  @cart.items.each do |item|
+    OrderItem.create(order_id: @order.id, item_id: item.id)
+  end
+
+  # Destroy cart
+  @cart.cart_items.destroy_all
+  # Is it necessary Mathieu Voland?
+  @cart.items.destroy_all
+  puts "AFTER DESTROY"
+  puts "#"*80
+  puts @cart.cart_items.inspect
+  puts @cart.items.inspect
+  puts "#"*80
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to new_charge_path
+    redirect_to cart_path
   end
+
 end
