@@ -6,10 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-require 'faker'
+# To avoid sending emails during the seed ?
+# FIXME: does not seem to work?
+::Rails.application.config.action_mailer.perform_deliveries = false
 
 Item.destroy_all
+User.destroy_all
 
 20.times do 
   item = Item.create(
@@ -19,3 +21,14 @@ Item.destroy_all
     image_url: "http://placekitten.com/#{rand(150..200)}/#{rand(150..200)}",
   )
 end 
+
+puts "1 user created"
+1.times do
+  password = Faker::Internet.password
+  first = Faker::Name.first_name
+  last  = Faker::Name.last_name
+  # email = "#{first}.#{last}@yopmail.com"
+  email = Faker::Internet.username(specifier: "#{first} #{last}", separators: ['.']) + '@yopmail.com'
+  User.create(email: email, password: password)
+  puts email
+end

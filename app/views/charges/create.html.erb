@@ -1,0 +1,21 @@
+<div class="row">
+  <h2>Merci pour votre commande <%= @user.email %> !</h2>
+  <% @order.items.each do | item | %>
+    <div class="col-md-4 mb-3 mt-2">
+      <p><%= item.title %></p>
+        <div class="item-card">
+          <img class="item-img" src="<%= item.image_url%>" alt="Card image cap">
+          <div class="item-card-body">
+            <h5 class="item-title"><%= item.title %></h5>
+            <p class="item-text"><%= item.description %></p>
+          </div>
+        </div>
+    </div>
+  <% end %>
+</div>
+
+<p>Vous avez dépensé seulement <%=@order_amount%> € pour une grande beauté !</p>
+
+<%= link_to "Retour à l'accueil", root_path, class: "show-button" %>
+
+<p>Et à bientôt</p>

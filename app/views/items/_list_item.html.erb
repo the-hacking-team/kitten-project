@@ -1,0 +1,19 @@
+<div class="col-md-4 mb-3 mt-2">
+
+  <div class="item-card">
+
+  <%= link_to item_path(item.id) do %>
+    <img class="item-img" src="<%= item.image_url%>" alt="Card image cap">
+  <% end %>  
+    
+    <div class="item-card-body">
+      <h5 class="item-title"><%= item.title %></h5>
+      <p class="item-text"><%= item.description %></p>
+      <p class="item-text"><small class="text-muted"><%= item.price %> €</small></p>
+
+      <%= link_to "Plus d'informations", item_path(item.id), class: "show-button" %>
+
+      <%= render partial: 'add_to_cart', locals: {item: item} %>
+    </div>
+  </div>
+</div>

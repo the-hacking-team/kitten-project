@@ -6,18 +6,22 @@
 
 .navbar_firstband,
 .navbar_secondband {
-}
-
-.unordered_list {
-  @extend .navbar-nav, .mr-auto;
-}
-
-.navbar-item-right_firstband {
-  @extend .nav-item, .dropdown;
+  @extend .navbar, .navbar-expand-lg;
 }
 
 .collapsable_elements {
   @extend .collapse, .navbar-collapse;
+}
+ 
+// ========== Firstband ======================================================================
+
+// ========== Left elements ===========
+.navbar_firstband {
+  @extend .bg-dark, .navbar-dark;
+}
+
+.unordered_list_left {
+  @extend .navbar-nav, .mr-auto;
 }
 
 .nav-item-left_firstband {
@@ -26,18 +30,19 @@
 
 .nav-item-left_firstband_link {
   @extend .nav-link;
-} 
- 
-// ========== Firstband ======================================================================
-
-// ========== Left elements ===========
-.navbar_firstband {
-  @extend .bg-dark, .navbar, .navbar-expand-lg, .navbar-dark;
 }
 
 // ========== Right elements ===========
+.navbar-item-right_firstband {
+  @extend .nav-item, .dropdown;
+}
+
+.unordered_list_right {
+  @extend .navbar-nav, .ml-auto;
+}
 
 // ========== Secondband =====================================================================
+
 .navbar_secondband {
   @extend .bg-light, .navbar, .navbar-expand-lg, .navbar-light;
 }
@@ -50,10 +55,7 @@
 	height: 40px;
 }
 
-
 // ========== Search bar ===========
-
-
 .navbarColor03 {
   @extend .collapse, .navbar-collapse;
 }
@@ -72,8 +74,12 @@
 
 
 // ========== Cart button ===========
+.cart_container {
+  @extend .ml-auto, .mr-3, .pr-3;
+}
+
 .cart_button {
-  @extend .btn, .btn-lg, .fas, .fa-shopping-cart;
+  @extend .btn, .btn-lg, .mr-3;
 }
 
 

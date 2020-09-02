@@ -1,0 +1,11 @@
+<% if user_signed_in? %>
+  <% if current_user.cart.items.include?(item) %>
+    (déjà dans le panier)
+  <% else %>
+    <% # local: true because we don't want AJAX %>
+    <%= form_with model: current_user.cart, local: true do |form| %>
+      <%= form.hidden_field :item_id, value: item.id %>
+      <%= form.submit "Ajouter au panier"%>
+    <% end %>
+  <% end %>
+<% end %>

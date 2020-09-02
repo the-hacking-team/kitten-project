@@ -1,0 +1,39 @@
+<h1> Panier de <%= current_user.email %></h1>
+
+<table class="cart">
+  <tr>
+    <th> Produit </th>
+    <th> Prix </th>
+  </tr>
+  <% for item in @cart.items %>
+    <tr>
+      <td><%= link_to "#{item.title}", item_path(item), class:"btn btn-block btn-outline-primary" %></td>
+      <td><%= item.price %> € </td>
+      <td><%= link_to "Supprimer", cart_path(:item_id => item.id), class:"btn btn-outline-secondary", method: "delete" %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <th> TOTAL </th>
+    <th> <%= @cart.total_price %> € </th>
+  </tr>
+</table>
+
+
+<% if !@cart.items.empty? %>
+  <%= form_tag charges_path do %>
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+    </article>
+  
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-description="Paiement commande <%= @cart.total_price %>"
+    data-amount="<%= @amount_stripe %>"
+    data-currency="eur"
+    data-locale="auto"></script>
+  <% end %>
+<% end %>

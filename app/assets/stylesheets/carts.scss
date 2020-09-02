@@ -1,0 +1,11 @@
+// Place all the styles related to the carts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+
+table.cart {
+  @extend .my-5;
+}
+table.cart td, table.cart th {
+  @extend .px-3;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+    <div class="row">
+      <h2>Merci <%= @user.email %> pour votre commande numéro <%= @order.id %> de <%= @order.items.size %> chatons !</h2>
+      <% @order.items.each do | item | %>
+        <div class="col-md-4 mb-3 mt-2">
+          <p><%= item.title %></p>
+          <div class="item-card">
+            <img class="item-img" src="<%= item.image_url%>" alt="Card image cap">
+            <div class="item-card-body">
+              <h5 class="item-title"><%= item.title %></h5>
+              <p class="item-text"><%= item.description %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <p>Vous avez dépensé seulement <%=@order_amount%> € pour une grande beauté !</p>
+
+    <p>Et à bientôt</p>
+
+    <p>
+      Pour accéder à ton espace client, connecte-toi via : https://<%= @url %>/users/sign_in 
+    </p>
+    <p> À très vite sur <%= @url %> ! </p>
+  </body>
+</html>
