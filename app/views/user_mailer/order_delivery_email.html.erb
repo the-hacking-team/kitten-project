@@ -1,4 +1,11 @@
-<div class="row">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+  <div class="row">
   <h2>Merci pour votre commande <%= @user.email %> !</h2>
   <% @order.items.each do | item | %>
     <div class="col-md-4 mb-3 mt-2">
@@ -16,6 +23,13 @@
 
 <p>Vous avez dépensé seulement <%=@order_amount%> € pour une grande beauté !</p>
 
-<%= link_to "Retour à l'accueil", root_path, class: "show-button" %>
-
 <p>Et à bientôt</p>
+
+    <p>
+      Pour accéder à ton espace client, connecte-toi via : https://<%= @url %>/users/sign_in 
+    </p>
+    <p> À très vite sur <%= @url %> ! </p>
+    </body>
+  </html>
+
+
