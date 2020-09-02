@@ -1,9 +1,8 @@
-<div class="container">
   <div class="row">
-    <div class="col-md-6 offset-md-3">
+    <div class="mailercontainer">
       <br><br><br>
-      <%= form_for resource, as: resource_name, url: session_path(resource_name), html: { class: "form-signin mt-3" } do |f| %>
-        <h1 class="h3 mb-3 font-weight-normal text-center">Se connecter</h1>
+      <%= form_for resource, as: resource_name, url: session_path(resource_name), html: { class: "form-signin formforressource" } do |f| %>
+        <h1 class="deviseh1title">Se connecter</h1>
         <%= devise_error_messages! %>
 
         <div class="form-group">
@@ -23,12 +22,11 @@
         </div>
         <% end %>
 
-        <div class="actions mt-5">
-          <%= f.submit "Se connecter", class: "btn btn-lg btn-primary btn-block" %>
+        <div class="actions submitaction">
+          <%= f.submit "Se connecter", class: "submitactionbutton" %>
         </div>
 
         <% end %>
       <%= render "devise/shared/links" %>
     </div>
   </div>
-</div>
