@@ -23,6 +23,5 @@ class User < ApplicationRecord
   def create_cart
     Cart.create(user_id: self.id)
   end
-  
 
 end

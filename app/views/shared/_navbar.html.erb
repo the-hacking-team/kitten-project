@@ -2,11 +2,16 @@
       ================================================== -->
 <div class="bs-component">
   <nav class="navbar_firstband">
+
     <div class="collapsable_elements" id="navbarColor02">
       <ul class="unordered_list_left">
+      <% if user_signed_in? %>
+        <%= link_to "Mon profil", user_path(current_user.id), class:"navbar-brand" %>
+      <% end %>
       </ul>
       <div>
-        <ul class="unordered_list_right">
+
+      <ul class="unordered_list_right">
           <li class="navbar-item-right_firstband">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">Language<span class="caret"></span></a>
             <div class="dropdown-menu" aria-labelledby="download">
@@ -20,7 +25,7 @@
               <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"nav-link" %>
             </li>
             <li class="nav-item active">
-              <%= link_to current_user.email, edit_user_registration_path, class:"nav-link" %>
+              <%= link_to current_user.email, user_path(current_user.id), class:"nav-link" %>
             </li>
           <% else %>
             <li class="nav-item active">
@@ -56,9 +61,7 @@
     </div>
     <% if user_signed_in? %>
       <ul class="cart_container">
-        <li>
-          <%= link_to "Panier (#{current_user.cart.total_price} €)", cart_path(current_user.cart), class:"cart_button" %>
-        </li>
+        <%= link_to " (#{current_user.cart.total_price} €)", cart_path(current_user.cart), class:"fas fa-lg fa-shopping-cart cart_button" %>
       </ul>
     <%end%>
   </nav>
