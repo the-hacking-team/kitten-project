@@ -9,15 +9,8 @@ module Admin
     before_action :authenticate_admin
 
 
-    #Using HTTP Basic Authentification
-    http_basic_authenticate_with(
-      email: ENV.fetch("ADMIN_EMAIL"),
-      password: ENV.fetch("ADMIN_PASSWORD")
-    )
-
-
     def authenticate_admin
-      # TODO Add authentication logic here.
+      authenticate_administrator!
     end
 
     # Override this value to specify the number of elements to display at a time
