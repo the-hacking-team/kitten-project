@@ -6,7 +6,7 @@
   <body>
 
     <div class="row">
-      <h2>Merci <%= @user.email %> pour votre commande numéro <%= @order.id %> de <%= @order.items.size %> chatons !</h2>
+      <h2>Merci <%= @user.name %> pour votre commande numéro <%= @order.id %> de <%= @order.items.size %> chatons !</h2>
       <% @order.items.each do | item | %>
         <div class="col-md-4 mb-3 mt-2">
           <p><%= item.title %></p>

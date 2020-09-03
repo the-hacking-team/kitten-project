@@ -3,7 +3,9 @@ class UsersController < ApplicationController
   before_action :is_my_profile, only: [:show]
 
   def show
+  	@items = Item.all
     @user = current_user
+    @total_amount = @user.order_total_amount
   end
 
 private

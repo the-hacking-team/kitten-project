@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  devise_for :administrators
+  namespace :admin do
+      resources :users
+      resources :carts
+      resources :cart_items
+      resources :items
+      resources :orders
+      resources :order_items
+      resources :stats, only: [:index]
+
+      root to: "users#index"
+    end
   devise_for :users
   root 'items#index'
   

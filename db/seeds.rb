@@ -12,23 +12,25 @@
 
 Item.destroy_all
 User.destroy_all
+Administrator.destroy_all
 
-20.times do 
+20.times do
   item = Item.create(
     title: Faker::Creature::Cat.breed,
     description: Faker::Lorem.paragraph(sentence_count: 3),
-    price:rand(5.00..100.00),
-    image_url: "http://placekitten.com/#{rand(150..200)}/#{rand(150..200)}",
+    price: rand(5.00..100.00),
+    image_url: "http://placekitten.com/#{rand(150..200)}/#{rand(150..200)}"
   )
-end 
+end
 
-puts "1 user created"
 1.times do
   password = Faker::Internet.password
   first = Faker::Name.first_name
   last  = Faker::Name.last_name
-  # email = "#{first}.#{last}@yopmail.com"
   email = Faker::Internet.username(specifier: "#{first} #{last}", separators: ['.']) + '@yopmail.com'
-  User.create(email: email, password: password)
+  User.create(first_name: first, last_name: last, email: email, password: password)
   puts email
 end
+puts "#{User.all.size} user created"
+
+Administrator.create(email: 'hello-kitten@yopmail.com', password: 'adminpassword')
