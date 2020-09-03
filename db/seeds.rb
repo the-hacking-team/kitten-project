@@ -12,6 +12,7 @@
 
 Item.destroy_all
 User.destroy_all
+Administrator.destroy_all
 
 20.times do
   item = Item.create(
