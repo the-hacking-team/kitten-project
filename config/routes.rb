@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :items
       resources :orders
       resources :order_items
+      resources :stats, only: [:index]
 
       root to: "users#index"
     end
