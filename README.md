@@ -29,7 +29,7 @@
 
 * SendGrid : https://sendgrid.com/
 * Stripe avec la gem [stripe](https://github.com/stripe/stripe-ruby) 
-* Open_letter :  
+* Open_letter : [letter_opener](https://github.com/ryanb/letter_opener)
 
 ## Contributeurs
 
