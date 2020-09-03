@@ -2,8 +2,6 @@
 
 # HELLO KITTEN - HACKING TEAM PROJECT
 
-
-
 ## Sites internet
 [hello-kitten](http://www.hello-kitten.com/) : http://www.hello-kitten.com/
 
@@ -15,6 +13,9 @@
 
 [production](https://hello-kitten.herokuapp.com)
 
+### Dashboard Admin
+
+[hello-kitten/admin](http://www.hello-kitten.com) (avec email =  `admin@yopmail.com` et password = `adminpassword`)
 
 ## Environnement :
 

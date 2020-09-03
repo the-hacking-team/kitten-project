@@ -32,3 +32,5 @@ end
   puts email
 end
 puts "#{User.all.size} user created"
+
+Administrator.create(email: 'admin@yopmail.com', password: 'adminpassword')
