@@ -70,6 +70,9 @@ gem 'devise'
 gem 'table_print'
 # Payment API
 gem 'stripe'
+#Admin Dashboard
+gem 'administrate'
+
 
 #Adding a library for Icons
 gem 'font-awesome-sass', '~> 5.13.0'
