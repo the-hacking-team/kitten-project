@@ -46,6 +46,11 @@
   margin-bottom: 5px;
 }
 
+.action-button {
+  @extend .btn, .btn-primary, .mt-auto;
+  margin-bottom: 5px;
+}
+
 .cart-button {
   @extend .btn;
   background-color: #b15315;
@@ -80,6 +85,25 @@
   font-size: 2.5rem;
   margin-bottom: 30px;
 }
+
+.price_button_container {
+  @extend .mr-1, .pr-2;
+  margin-top: -40px;
+  justify-content:flex-end;
+  text-align:right;
+}
+
+.price_button {
+  @extend .btn, .btn-danger, .rounded-circle, .border-secondary, .font-weight-bold;
+  height: 70px;
+  width: 70px;
+  vertical-align: middle;
+  background-color: white;
+  color: black;
+  border-color: black;
+}
+
+
 
 // Test autre option
 
