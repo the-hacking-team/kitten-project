@@ -1,47 +1,88 @@
 <div class="container mt-4">
-  <h2>Votre profil utilisateur :</h2>
-
-  <div class="row">
-    <div class="card border-success mb-3" style="max-width: 24rem;">
-      <div class="card-header">Nom : <%= @user.email%></div>
-        <div class="card-body text-success">
-          <h6 class="card-title">Email: <%= @user.email %></h6>
-          <p class="card-text text-muted">Merci <%= @user.email %></p>
-          <%= link_to 'Editer', edit_user_registration_path, :class => "btn btn-secondary", style:"font-size:smaller"%>
-      </div>
+    <h2>Profil :
+        <%= @user.email%>
+    </h2>
+    <%= link_to 'Editer le profil', edit_user_registration_path, :class => "btn btn-secondary", style:"font-size:smaller"%>
+    <h3 class="h3-spacing">Collection :</h3>
+    <div class="row">
+        <% @items.each do |item|%>
+        <% @user.items.each do |useritem|%>
+        <% if (useritem === item) %>
+        <img src="<%= item.image_url%>" alt="Card image cap">
+        <% end %>
+        <% end %>
+        <% end %>
     </div>
-  </div>
-  
-
-  <h3 class="mt-4 mb-4">Vos commandes (<%= @user.email %>) :</h3>
-  <% @user.orders.each do |order|%>
-    <div class="row my-3">
-      <div class="col-md-12">
-        <div class="card p-2">
-          <div class="card-body d-flex m-0 p-0">
-
-            <div class="col-md-1 pt-2">
-              <div class="ml-auto d-flex">
-                n° <%=order.id%>
-              </div>
-            </div>
-            <div class="col-md-11">
-              <div class="card-text">
-                <span><strong>Commande de </strong></span><span class="text-muted"><%= order.items.size %> articles</span>
-              </div>
-              <% order.items.each do |item| %>
-                <div class="card-body m-0 px-0  pt-2 pb-0 ">
-                  <span><strong>Contenu <%=item.id%> :</strong></span><span class="text-muted"> <%= item.title %></span>
+    <h3 class="h3-spacing">Commandes :</h3>
+    <% @user.orders.each do |order|%>
+    <div class="edit-profile-card-row">
+        <div class="edit-profile-card-col">
+            <div class="edit-profile-card-card">
+                <div class="edit-profile-card-card-body">
+                    <div class="edit-profile-card-card-firstcol">
+                        <div class="edit-profile-card-card-firstcol-content">
+                            Commande<br>n°
+                            <%=order.id%>
+                        </div>
+                    </div>
+                    <div class="edit-profile-card-card-secondcol">
+                        <div class="card-text">
+                            <span><strong>Commande de </strong></span><span class="text-muted">
+                                <%= order.items.size %> articles</span>
+                        </div>
+                        <% order.items.each do |item| %>
+                        <div class="edit-profile-card-card-secondcol-content">
+                            <span><strong>Photo
+                                    <%=item.id%> :</strong></span><span class="text-muted">
+                                <%= item.title %></span>
+                        </div>
+                        <% end %>
+                    </div>
+                    <div class="edit-profile-card-card-thirdcol">
+                        <div class="card-text">
+                            <span><strong></strong></span><span class="text-muted"><br></span>
+                        </div>
+                        <% order.items.each do |item| %>
+                        <div class="edit-profile-card-card-thirdcol-content">
+                            <span class="text-muted">
+                                <%= item.price %> €
+                            </span>
+                        </div>
+                        <% end %>
+                    </div>
                 </div>
-              <% end %>
             </div>
-
-          </div>
         </div>
-      </div>
     </div>
-  <%end%>
-
-  <%= link_to "Retour à l'accueil", root_path, class:"nav-link btn btn-secondary" %>
-
+    <%end%>
+    <div class="edit-profile-card-row">
+        <div class="edit-profile-card-col">
+            <div class="edit-profile-card-card">
+                <div class="edit-profile-card-card-body">
+                    <div class="edit-profile-card-card-firstcol">
+                        <div class="edit-profile-card-card-firstcol-content">
+                        </div>
+                    </div>
+                    <div class="edit-profile-card-card-secondcol">
+                        <div class="card-text">
+                            <span><strong>Total des commandes </strong></span><span class="text-muted">
+                            </span>
+                        </div>
+                        <div class="edit-profile-card-card-secondcol-content">
+                            <span><strong></strong></span><span class="text-muted">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="edit-profile-card-card-thirdcol">
+                        <div class="card-text">
+                            <span><strong></strong></span><span class="text-muted"></span>
+                        </div>
+                        <div class="edit-profile-card-card-thirdcol-content">
+                            <%= @total_amount %> €
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

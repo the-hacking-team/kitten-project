@@ -11,6 +11,16 @@ class User < ApplicationRecord
   after_create :welcome_send
   after_create :create_cart
 
+  def order_total_amount
+    total = 0
+    self.orders.each do |order| 
+      order.items.each do |item|
+        total += item.price
+      end
+    end
+    return total
+  end
+
   private
 
   def welcome_send
@@ -24,4 +34,8 @@ class User < ApplicationRecord
   def create_cart
     Cart.create(user_id: id)
   end
+
+
+  
+
 end
