@@ -36,7 +36,14 @@ class ChargesController < ApplicationController
       OrderItem.create(order_id: @order.id, item_id: item.id)
     end
 
-    UserMailer.with(order: @order).order_delivery_email.deliver_now
+    # See https://stackoverflow.com/questions/8709984/how-to-catch-error-exception-in-actionmailer
+    begin
+      UserMailer.with(order: @order).order_delivery_email.deliver_now
+    rescue Exception => e
+      puts 'ERROR: order_delivery_email'
+      # FIXME: can't see notice
+      flash[:notice] = "Il y a eu un problème dans l'envoi du mail, merci de nous contacter"
+    end
 
     # FIXME: check if necessary?
     # Destroy cart
