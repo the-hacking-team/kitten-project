@@ -22,10 +22,9 @@ class CartDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  user
-  cart_items
-  items
   id
+  user
+  items
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
