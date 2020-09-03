@@ -15,7 +15,7 @@
 
 ### Dashboard Admin
 
-[hello-kitten/admin](http://www.hello-kitten.com/admin) (avec email =  `admin@yopmail.com` et password = `adminpassword`)
+[hello-kitten/admin](http://www.hello-kitten.com/admin) (avec email =  `hello-kitten@yopmail.com` et password = `adminpassword`)
 
 ## Environnement :
 
