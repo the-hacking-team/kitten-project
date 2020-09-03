@@ -13,12 +13,20 @@ class User < ApplicationRecord
 
   def order_total_amount
     total = 0
-    self.orders.each do |order| 
+    orders.each do |order|
       order.items.each do |item|
         total += item.price
       end
     end
-    return total
+    total
+  end
+
+  def name
+    if first_name || last_name
+      "#{first_name} #{last_name}"
+    else
+      email
+    end
   end
 
   private
@@ -34,8 +42,4 @@ class User < ApplicationRecord
   def create_cart
     Cart.create(user_id: id)
   end
-
-
-  
-
 end

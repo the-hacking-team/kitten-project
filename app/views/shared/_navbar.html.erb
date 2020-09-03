@@ -1,56 +1,56 @@
 <!-- Firstband
       ================================================== -->
 <div class="bs-component">
-    <nav class="navbar_firstband">
+  <nav class="navbar_firstband">
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
- </button>
-            <div class="collapsable_elements" id="navbarColor03">
-       
-        <ul class="unordered_list_left">
-            <% if user_signed_in? %>
-            <%= link_to "Mon profil", user_path(current_user.id), class:"nav-link" %>
-            <% end %>
-        </ul>
-        <ul class="unordered_list_right">
-            <% if user_signed_in? %>
-            <li class="nav-item active">
-                <%= link_to 'Déconnection', destroy_user_session_path, method: :delete, class:"nav-link" %>
-            </li>
-            <li class="nav-item active">
-                <%= link_to current_user.email, user_path(current_user.id), class:"nav-link" %>
-            </li>
-            <% elsif administrator_signed_in? %>
-            <li class="nav-item active">
-                <%= link_to 'Déconnection', destroy_administrator_session_path, method: :delete, class:"nav-link" %>
-            </li>
-            <% else %>
-            <li class="nav-item active">
-                <%= link_to "Connection", new_user_session_path, class:"nav-link"  %>
-            </li>
-            <li class="nav-item active">
-                <%= link_to "Inscription", new_user_registration_path, class:"nav-link"  %>
-            </li>
-            <% end %>
-        </ul>
-</div>
-</nav>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapsable_elements" id="navbarColor03">
+
+      <ul class="unordered_list_left">
+        <% if user_signed_in? %>
+          <%= link_to "Mon profil", user_path(current_user.id), class:"nav-link" %>
+        <% end %>
+      </ul>
+      <ul class="unordered_list_right">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to 'Déconnection', destroy_user_session_path, method: :delete, class:"nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to current_user.name, user_path(current_user.id), class:"nav-link" %>
+          </li>
+        <% elsif administrator_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to 'Déconnection', destroy_administrator_session_path, method: :delete, class:"nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item active">
+            <%= link_to "Connection", new_user_session_path, class:"nav-link"  %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Inscription", new_user_registration_path, class:"nav-link"  %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
 </div>
 <!-- Secondband
       ================================================== -->
 <div class="bs-component">
-    <nav class="navbar_secondband">
-        <%= link_to root_path do %>
-        <%= image_tag "hello-kitten.png", class:"navbar-logotext" %>
-        <% end %>
-        <%= link_to root_path do %>
-        <%= image_tag "catlogo.png", class:"navbar-logoimage" %>
-        <% end %>
-        <% if user_signed_in? %>
-        <ul class="cart_container">
-            <%= link_to " (#{current_user.cart.total_price} €)", cart_path(current_user.cart), class:"fas fa-lg fa-shopping-cart cart_button" %>
-        </ul>
-        <%end%>
-    </nav>
+  <nav class="navbar_secondband">
+    <%= link_to root_path do %>
+      <%= image_tag "hello-kitten.png", class:"navbar-logotext" %>
+    <% end %>
+    <%= link_to root_path do %>
+      <%= image_tag "catlogo.png", class:"navbar-logoimage" %>
+    <% end %>
+    <% if user_signed_in? %>
+      <ul class="cart_container">
+        <%= link_to " (#{current_user.cart.total_price} €)", cart_path(current_user.cart), class:"fas fa-lg fa-shopping-cart cart_button" %>
+      </ul>
+    <%end%>
+  </nav>
 </div>

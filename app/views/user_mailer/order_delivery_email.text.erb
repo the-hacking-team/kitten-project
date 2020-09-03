@@ -1,10 +1,10 @@
-Merci <%= @user.email %> pour votre commande numéro <%= @order.id %> de <%= @order.items.size %> chatons !
+Merci <%= @user.name %> pour votre commande numéro <%= @order.id %> de <%= @order.items.size %> chatons !
 ==============================================
 
 <% @order.items.each do | item | %>
-Titre de l'image : <%= item.title %>
+  Titre de l'image : <%= item.title %>
 
-Description :<%= item.description %>
+  Description :<%= item.description %>
 <% end %>
 
 Vous n'avez dépensé que <%=@order_amount%> € pour une photo de grande qualité !
