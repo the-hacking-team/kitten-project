@@ -27,11 +27,10 @@ end
   password = Faker::Internet.password
   first = Faker::Name.first_name
   last  = Faker::Name.last_name
-  # email = "#{first}.#{last}@yopmail.com"
   email = Faker::Internet.username(specifier: "#{first} #{last}", separators: ['.']) + '@yopmail.com'
   User.create(first_name: first, last_name: last, email: email, password: password)
   puts email
 end
 puts "#{User.all.size} user created"
 
-Administrator.create(email: 'admin@yopmail.com', password: 'adminpassword')
+Administrator.create(email: 'hello-kitten@yopmail.com', password: 'adminpassword')
