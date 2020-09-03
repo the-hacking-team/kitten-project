@@ -27,9 +27,9 @@
 
 4- API Utilisées:
 
-* SendGrid : https://sendgrid.com/
-* Stripe avec la gem [stripe](https://github.com/stripe/stripe-ruby) 
-* Open_letter : [letter_opener](https://github.com/ryanb/letter_opener)
+* SendGrid : [SendGrid](https://sendgrid.com/)
+* Stripe avec la gem [Stripe](https://github.com/stripe/stripe-ruby) 
+* Open_letter : [Letter_opener](https://github.com/ryanb/letter_opener)
 
 ## Contributeurs
 
