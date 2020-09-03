@@ -5,7 +5,7 @@
     <% # local: true because we don't want AJAX %>
     <%= form_with model: current_user.cart, local: true do |form| %>
       <%= form.hidden_field :item_id, value: item.id %>
-      <%= form.submit "Ajouter au panier"%>
+      <%= form.submit "Ajouter au panier", class:"action-button" %>
     <% end %>
   <% end %>
 <% end %>
