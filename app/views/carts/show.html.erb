@@ -1,4 +1,4 @@
-<h1> Panier de <%= current_user.email %></h1>
+<h1> Panier de <%= current_user.name %></h1>
 
 <table class="cart">
   <tr>
@@ -18,7 +18,6 @@
   </tr>
 </table>
 
-
 <% if !@cart.items.empty? %>
   <%= form_tag charges_path do %>
     <article>
@@ -28,8 +27,8 @@
         </div>
       <% end %>
     </article>
-  
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
     data-description="Paiement de votre commande <%= @cart.total_price %> €"
     data-amount="<%= @amount_stripe %>"

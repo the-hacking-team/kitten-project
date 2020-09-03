@@ -1,11 +1,11 @@
 Cher administrateur <%= @administrator.email %>
 ==============================================
 
-L'utilisateur <%= @user.email %> vient de passer sa commande (n° <%= @order.id %>) de <%= @order.items.size %> chatons !
+L'utilisateur <%= @user.name %> vient de passer sa commande (n° <%= @order.id %>) de <%= @order.items.size %> chatons !
 
 <% @order.items.each do | item | %>
-Titre de l'image : <%= item.title %>
-Description :<%= item.description %>
+  Titre de l'image : <%= item.title %>
+  Description :<%= item.description %>
 
 <% end %>
 
