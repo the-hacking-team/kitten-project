@@ -27,24 +27,19 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  cart
+  id
+  email
   orders
   items
-  id
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  cart
-  orders
-  items
   id
   email
-  encrypted_password
-  reset_password_token
-  reset_password_sent_at
-  remember_created_at
+  orders
+  items
   created_at
   updated_at
   ].freeze
@@ -57,10 +52,6 @@ class UserDashboard < Administrate::BaseDashboard
   orders
   items
   email
-  encrypted_password
-  reset_password_token
-  reset_password_sent_at
-  remember_created_at
   ].freeze
 
   # COLLECTION_FILTERS

@@ -1,0 +1,16 @@
+Cher administrateur <%= @administrator.email %>
+==============================================
+
+L'utilisateur <%= @user.email %> vient de passer sa commande (n° <%= @order.id %>) de <%= @order.items.size %> chatons !
+
+<% @order.items.each do | item | %>
+Titre de l'image : <%= item.title %>
+Description :<%= item.description %>
+
+<% end %>
+
+Tu viens de gagner <%=@order_amount%> €, c'est une belle journée n'est-ce pas ?!
+
+Pour accéder à ton espace administrateur, connecte-toi via : https://<%= @url %>/admin
+
+À très vite sur <%= @url %> !

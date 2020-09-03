@@ -11,16 +11,10 @@ class UserMailer < ApplicationMailer
 
   def order_delivery_email
     @order = params[:order]
+    @order_amount = params[:order_amount]
     @user = @order.user
     @url  = ENV['SENDGRID_HOSTNAME']
     mail(to: @user.email, subject: 'Voici votre commande')
   end
 
-  #  def order_delivery_email(user)
-  #    @user = user
-  #    @order = @user.orders.last
-  #    @url  = ENV['SENDGRID_HOSTNAME']
-  #
-  #    mail(to: @user.email, subject: 'Voici votre commande')
-  #  end
 end

@@ -31,7 +31,7 @@
   
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-description="Paiement commande <%= @cart.total_price %>"
+    data-description="Paiement de votre commande <%= @cart.total_price %> €"
     data-amount="<%= @amount_stripe %>"
     data-currency="eur"
     data-locale="auto"></script>
