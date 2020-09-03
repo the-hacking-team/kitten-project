@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  <div class="row">
+    <h2>Cher administrateur <%= @administrator.email %></h2>
+    <p>L'utilisateur <%= @user.email %> vient de passer sa commande (n° <%= @order.id %>) de <%= @order.items.size %> chatons !</h2>
+
+    <hr>
+    <% @order.items.each do | item | %>
+      <div class="col-md-4 mb-3 mt-2">  
+        <div class="item-card">
+          <div class="item-card-body">
+            <h5 class="item-title"><%= item.title %></h5>
+            <p class="item-text"><%= item.description %></p>
+            <hr>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+  <p>Tu viens de gagner <strong><%=@order_amount%> €</strong>, c'est une belle journée n'est-ce pas ?!</p>
+  
+  <p>
+  Pour accéder à ton espace client, connecte-toi via : https://<%= @url %>/admin 
+  </p>
+  <p> À très vite sur <%= @url %> ! </p>
+  
+  </body>
+</html>

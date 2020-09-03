@@ -1,10 +1,16 @@
-Bienvenue chez nous <%= @user.email %> !
+Merci <%= @user.email %> pour votre commande numéro <%= @order.id %> de <%= @order.items.size %> chatons !
 ==============================================
 
-Tu t'es inscrit sur <%= @url %> et nous t'en remercions !
+<% @order.items.each do | item | %>
+Titre de l'image : <%= item.title %>
 
+Description :<%= item.description %>
+<% end %>
 
-Pour accéder à ton espace client, connecte-toi via :https://<%= @url %>/users/sign_in.
+Vous n'avez dépensé que <%=@order_amount%> € pour une photo de grande qualité !
 
+Et à bientôt
 
-À très vite sur  <%= @url %> !
+Pour accéder à ton espace client, connecte-toi via : https://<%= @url %>
+
+À très vite sur <%= @url %> !
