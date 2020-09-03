@@ -1,10 +1,10 @@
 <div class="product-container">
   <div class="product">
     <img class="product-img" src="<%= item.image_url%>" alt="Card image cap">
+     <%= render partial: 'display_price', locals: {item: item} %>
     <div class="product-body">
       <h5 class="product-title"><%= item.title %></h5>
       <p class="product-text"><%= item.description %></p>
-      <p class="product-price"><small class="text-muted"><%= item.price %> €</small></p>
 
       <%= render partial: 'add_to_cart', locals: {item: item} %>
 
